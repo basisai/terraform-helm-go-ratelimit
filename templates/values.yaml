@@ -1,0 +1,77 @@
+# Default values for ..
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: ${replica}
+
+image:
+  repository: ${image}
+  tag: ${image_tag}
+  pullPolicy: IfNotPresent
+
+# imagePullSecrets: []
+nameOverride: ${name_override}
+fullnameOverride: ${fullname_override}
+
+podLabels: ${pod_labels}
+podAnnotations: ${pod_annotations}
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: ${service_account_create}
+  # Annotations to add to the service account
+  annotations: ${service_account_annotations}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ${service_account_name}
+
+podSecurityContext: ${pod_security_context}
+  # fsGroup: 2000
+
+securityContext: ${security_context}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+hpa:
+  minReplicas: ${hpa_min_replicas}
+  maxReplicas: ${hpa_max_replicas}
+
+resources: ${resources}
+
+nodeSelector: {}
+
+tolerations: ${tolerations}
+
+affinity: ${affinity}
+
+priorityClassName: ${priority_class_name}
+
+podDisruptionBudget: ${pdb}
+
+redisUrl: ${redis_url}
+redisSocketType: ${redis_socket_type}
+redisPort: ${redis_port}
+
+debugPort: ${debug_port}
+grpcPort: ${grpc_port}
+httpPort: ${http_port}
+
+
+logLevel: debug
+
+config: ${config}
+
+redish:
+  enabled: ${redish_enabled}
+  fullnameOverride: ${redish_fullname_override}
+  redisPort: ${redish_port}
+  persistence:
+    enabled: ${redish_persistence_enabled}
+  updateStrategy: ${redish_update_strategy}
+    # type: OnDelete
+  twemproxy:
+    enabled: ${redish_twemproxy_enabled}
