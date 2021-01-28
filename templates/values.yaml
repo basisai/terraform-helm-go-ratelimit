@@ -61,7 +61,7 @@ grpcPort: ${grpc_port}
 httpPort: ${http_port}
 
 
-logLevel: debug
+logLevel: ${log_level}
 
 config: ${config}
 
