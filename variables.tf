@@ -98,6 +98,11 @@ variable "hpa_max_replicas" {
   default     = 5
 }
 
+variable "env" {
+  description = "Additional environment variables"
+  default     = []
+}
+
 variable "resources" {
   description = "Pod resources"
   default     = {}
@@ -159,8 +164,16 @@ variable "log_level" {
 }
 
 variable "config" {
-  description = "Configuration file in YAML"
-  default     = "# Start with empty config"
+  description = "YAML configuration files"
+  type        = map(string)
+  default = {
+    "example.yaml" = <<-EOF
+      domain: example
+      descriptors:
+        - key: generic_key
+          value: global
+      EOF
+  }
 }
 
 variable "redish_enabled" {

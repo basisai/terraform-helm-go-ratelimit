@@ -40,6 +40,8 @@ hpa:
   minReplicas: ${hpa_min_replicas}
   maxReplicas: ${hpa_max_replicas}
 
+env: ${env}
+
 resources: ${resources}
 
 nodeSelector: {}
@@ -60,10 +62,10 @@ debugPort: ${debug_port}
 grpcPort: ${grpc_port}
 httpPort: ${http_port}
 
-
 logLevel: ${log_level}
 
-config: ${config}
+config:
+  ${indent(2, config)}
 
 redish:
   enabled: ${redish_enabled}

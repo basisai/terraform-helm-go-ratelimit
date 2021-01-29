@@ -25,8 +25,9 @@ a [Helm Chart](https://github.com/softonic/go-ratelimit-chart).
 | chart\_namespace | Namespace to install the chart into | `string` | `"default"` | no |
 | chart\_repository | Helm repository for the chart | `string` | `"https://basisai.github.io/charts/"` | no |
 | chart\_version | Version of Chart to install. Set to empty to install the latest version | `string` | `""` | no |
-| config | Configuration file in YAML | `string` | `"# Start with empty config"` | no |
+| config | YAML configuration files | `map(string)` | <pre>{<br>  "example.yaml": "domain: example\ndescriptors:\n  - key: generic_key\n    value: global\n"<br>}</pre> | no |
 | debug\_port | Port for debugging | `number` | `6070` | no |
+| env | Additional environment variables | `list` | `[]` | no |
 | fullname\_override | Full name Override for Helm resources | `string` | `""` | no |
 | grpc\_port | Port for GRPC | `number` | `8081` | no |
 | hpa\_max\_replicas | Maximum number of replicas for HPA | `number` | `5` | no |

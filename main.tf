@@ -34,6 +34,7 @@ locals {
     hpa_min_replicas = var.hpa_min_replicas
     hpa_max_replicas = var.hpa_max_replicas
 
+    env                 = jsonencode(var.env)
     resources           = jsonencode(var.resources)
     tolerations         = jsonencode(var.tolerations)
     affinity            = jsonencode(var.affinity)
@@ -45,7 +46,7 @@ locals {
     http_port  = var.http_port
 
     log_level = var.log_level
-    config    = jsonencode(var.config)
+    config    = yamlencode(var.config)
 
     redis_url         = var.redis_url
     redis_socket_type = var.redis_socket_type
